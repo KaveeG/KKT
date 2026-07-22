@@ -1,0 +1,10 @@
+{
+  "description": "Experience a visually accurate e-commerce platform for KK Tailors, featuring tailored products, easy navigation, and a seamless shopping experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
