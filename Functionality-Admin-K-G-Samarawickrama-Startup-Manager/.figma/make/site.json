@@ -1,0 +1,10 @@
+{
+  "description": "Generate creative content quickly with an intuitive tool designed to inspire and streamline your writing process for any project.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
