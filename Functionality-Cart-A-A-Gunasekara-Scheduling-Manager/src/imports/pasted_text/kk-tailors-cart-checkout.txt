@@ -1,0 +1,486 @@
+Create the Slide-out Cart, Cart Page and Checkout Page for the KK Tailors React frontend using the three attached screenshots.
+
+## Attached screenshots
+
+* Slide-out Cart
+* Cart Page
+* Checkout Page
+
+Each screenshot is the exact visual source of truth.
+
+This is an implementation task, not a redesign task. Reproduce the attached interfaces as closely as possible rather than creating similar alternative e-commerce pages.
+
+Complete all three interfaces in one implementation pass.
+
+## Technical requirements
+
+Use:
+
+* React
+* JavaScript
+* JSX
+* Standard CSS files
+* Reusable React components
+* Temporary local cart data
+
+Do not use:
+
+* TypeScript
+* Tailwind CSS
+* Bootstrap
+* External UI frameworks
+* Backend APIs
+* MongoDB
+* Authentication services
+* Payment gateways
+* External design templates
+* Unrelated images
+
+The generated code will later be transferred into an existing React + JavaScript + Vite project.
+
+## Interfaces to create
+
+Create:
+
+```text
+Slide-out Cart
+/cart
+/checkout
+```
+
+The Slide-out Cart should appear as an overlay panel rather than a separate full page.
+
+## Critical design requirement
+
+Match the attached screenshots as closely as possible, including:
+
+* Page dimensions
+* Panel width
+* Content width
+* Layout
+* Section order
+* Background colours
+* Typography
+* Font sizes
+* Font weights
+* Spacing
+* Padding
+* Margins
+* Borders
+* Border radius
+* Shadows
+* Icons
+* Product-image dimensions
+* Quantity controls
+* Button dimensions
+* Summary layout
+* Overlay appearance
+* Form-field dimensions
+* Alignment
+
+Do not:
+
+* Add sections not shown in the screenshots
+* Remove elements shown in the screenshots
+* Change the colour palette
+* Replace the layouts with generic cart templates
+* Display the screenshots themselves as page images
+* Build an interface as one flattened image
+
+Use real React elements, controls and CSS.
+
+## Shared components
+
+Create reusable components where appropriate, including:
+
+* CartItem
+* ProductImagePlaceholder
+* QuantitySelector
+* PriceSummary
+* SlideOutCart
+* CartPage
+* CheckoutForm
+* OrderSummary
+* PrimaryButton
+* EmptyCartState
+
+Do not create unnecessary components for very small decorative elements.
+
+## Temporary cart data
+
+Use temporary local cart data such as:
+
+```js
+[
+  {
+    id: 101,
+    name: "Classic Silk Saree",
+    category: "Sarees",
+    color: "Maroon",
+    size: "Free Size",
+    price: 12500,
+    quantity: 1,
+    image: null
+  }
+]
+```
+
+Requirements:
+
+* Product IDs must be unique.
+* Prices must remain numeric.
+* Quantities must remain numeric.
+* Do not hard-code complete CartItem markup repeatedly.
+* Render cart items by mapping over the data.
+* Use a clean placeholder when a product image is missing.
+* Do not display broken images.
+
+Format prices in Sri Lankan rupees:
+
+```text
+LKR 12,500.00
+```
+
+Do not use dollar symbols.
+
+## Slide-out Cart
+
+Reproduce the attached Slide-out Cart screenshot exactly.
+
+The panel should:
+
+* Open from the right side of the screen
+* Display over the current page
+* Include a dark or translucent page overlay when shown in the screenshot
+* Display the cart heading
+* Display the current cart items
+* Display image, name, selected options, quantity and price as shown
+* Include quantity controls when shown
+* Include remove controls when shown
+* Display subtotal or summary information shown in the screenshot
+* Include the exact visible action buttons shown in the screenshot
+
+Required behaviour:
+
+* Add a close button.
+* Close when the close button is selected.
+* Close when the user clicks the overlay outside the panel.
+* Close when the Escape key is pressed.
+* Prevent the page behind the panel from scrolling while it is open.
+* Restore page scrolling after it closes.
+* Use React state.
+* Do not install a drawer package.
+* Do not use `href="#"`.
+
+Connect the relevant action:
+
+```text
+View Cart → /cart
+```
+
+When a Checkout action is shown:
+
+```text
+Checkout → /checkout
+```
+
+Use client-side navigation.
+
+## Full Cart Page
+
+Reproduce the attached Cart Page screenshot exactly.
+
+The Cart page may include the following only when visible in the screenshot:
+
+* My Cart heading
+* Product rows or cards
+* Product image
+* Product name
+* Selected colour
+* Selected size
+* Unit price
+* Quantity controls
+* Remove button
+* Subtotal
+* Delivery charge
+* Discount
+* Total
+* Continue Shopping
+* Proceed to Checkout
+
+Do not invent controls not shown in the screenshot.
+
+### Cart interactions
+
+Implement temporary frontend-only behaviour:
+
+* Increase quantity
+* Decrease quantity
+* Prevent quantity from going below 1
+* Remove an item
+* Recalculate each line total
+* Recalculate subtotal
+* Recalculate the final total
+
+Keep calculations based on numeric prices and quantities.
+
+The Cart page must update immediately without reloading.
+
+### Empty Cart state
+
+When all items are removed, display a simple empty state consistent with the current design.
+
+Suitable content may include:
+
+```text
+Your cart is empty.
+```
+
+Add a Continue Shopping control only when it fits the attached design.
+
+Do not add unrelated recommendations.
+
+## Checkout Page
+
+Reproduce the attached Checkout screenshot exactly.
+
+Create only the sections visible in the screenshot.
+
+When the design contains these fields, implement them with suitable controls:
+
+### Customer details
+
+* Full Name
+* Email Address
+* Phone Number
+
+### Delivery details
+
+* Address Line 1
+* Address Line 2
+* City
+* Postal Code
+
+### Payment method
+
+Implement only the payment options shown in the screenshot.
+
+If the screenshot shows Cash on Delivery, preserve it.
+
+Do not integrate:
+
+* Stripe
+* PayPal
+* Card processing
+* Banking APIs
+* Real payment services
+
+### Order summary
+
+Display the products currently in the temporary cart.
+
+Include only the summary values visible in the screenshot, such as:
+
+* Subtotal
+* Delivery charge
+* Discount
+* Total
+
+Use LKR formatting throughout.
+
+### Checkout validation
+
+Add simple frontend validation:
+
+* Required fields cannot be empty.
+* Email must use `type="email"`.
+* Phone should use `type="tel"`.
+* Postal code should use a suitable text input.
+* A delivery or payment option must be selected when required.
+
+Prevent the form from reloading the browser.
+
+A valid temporary submission may display:
+
+```text
+Order placed successfully.
+```
+
+or navigate to a simple confirmation state only when necessary for previewing.
+
+Do not claim that a real order was saved.
+
+Do not create a backend.
+
+## Shared cart state
+
+Use one reusable React cart state for:
+
+* Slide-out Cart
+* Cart Page
+* Checkout Page
+
+Do not create three disconnected cart-data copies.
+
+Use React Context when practical, with values such as:
+
+```js
+cartItems
+cartCount
+subtotal
+updateQuantity
+removeFromCart
+clearCart
+```
+
+Do not use:
+
+* Local storage
+* Session storage
+* Cookies
+* Backend persistence
+
+It is acceptable for the temporary cart state to reset after a full browser refresh.
+
+## Navigation
+
+Provide simple client-side navigation:
+
+```text
+Slide-out Cart → /cart
+Cart Page → /checkout
+Checkout Page → /cart
+```
+
+Continue Shopping may return to:
+
+```text
+/products
+```
+
+Use React Router or the existing navigation approach in the generated project.
+
+Do not use manual page reloads.
+
+## Navbar and Footer
+
+The screenshots may include a KK Tailors navbar or footer.
+
+When they are visible:
+
+* Reproduce them for the generated preview.
+* Use one reusable Header and Footer.
+* Do not create different duplicated versions on each page.
+
+The generated Header and Footer will later be replaced with the existing shared Header and Footer in the main KK Tailors project.
+
+Do not spend excessive time rebuilding the full Home-page navigation.
+
+Prioritize the cart and checkout interfaces.
+
+## Product images
+
+Use image assets available from the screenshots when possible.
+
+When an image is unavailable:
+
+* Use a clean placeholder.
+* Preserve the exact product-image dimensions.
+* Do not use unrelated external product images.
+* Do not show broken image icons.
+
+## Desktop layout
+
+The screenshots are desktop interfaces.
+
+Prioritize matching their desktop dimensions and appearance.
+
+Add only basic responsive protection:
+
+* Prevent horizontal overflow.
+* Keep the slide-out panel inside the viewport.
+* Allow Cart rows to stack when necessary.
+* Allow Checkout columns to stack on narrower screens.
+* Keep inputs and buttons usable.
+
+Do not invent separate mobile screens.
+
+## Accessibility
+
+Ensure:
+
+* The Slide-out Cart close button has an accessible label.
+* Quantity buttons have accessible labels.
+* Remove buttons have accessible labels.
+* Form fields have labels.
+* Buttons use suitable `type` values.
+* Focus states remain visible.
+* The Slide-out Cart can close using Escape.
+* Real navigation uses links or router navigation.
+* Actions use buttons.
+* Do not use `href="#"`.
+* Do not nest buttons inside links.
+* Do not nest links inside buttons.
+
+## Credit-saving execution
+
+Complete all three attached interfaces in one pass:
+
+1. Slide-out Cart
+2. Cart Page
+3. Checkout Page
+
+Do not stop to ask questions.
+
+Do not generate multiple alternatives.
+
+Do not repeatedly rebuild completed sections.
+
+First inspect all screenshots, identify shared components and styling, then implement the complete result.
+
+Prioritize:
+
+1. Accurate screenshot reproduction
+2. Completion of all three interfaces
+3. Shared cart state
+4. Working quantity and remove controls
+5. Working page navigation
+6. Frontend-only checkout validation
+
+Do not spend time implementing backend, database or payment functionality.
+
+## Final verification
+
+Perform one concise verification after implementation.
+
+Confirm:
+
+* Slide-out Cart renders correctly.
+* Slide-out Cart opens and closes correctly.
+* Overlay click closes the panel.
+* Escape closes the panel.
+* Cart Page renders correctly.
+* Checkout Page renders correctly.
+* Quantity controls update totals.
+* Removing items updates totals.
+* Empty Cart state works.
+* Cart and Checkout navigation works.
+* Prices display in LKR.
+* No dollar symbols appear.
+* Checkout validation works.
+* Forms do not reload unexpectedly.
+* No backend or payment service was added.
+* No broken local assets appear.
+* No unintended horizontal overflow appears.
+
+Finish with a brief report containing:
+
+* Interfaces created
+* Components created
+* Routes created
+* Cart state implemented
+* Temporary data added
+* Quantity and remove behaviour
+* Checkout validation
+* Placeholder assets remaining
+* Any visible design differences that could not be matched
